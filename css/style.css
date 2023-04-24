@@ -304,162 +304,83 @@ button {
   border-color: var(--amber-sae-ece);
 }
 
-/* Header Section */
-.header {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  padding: 20px 0 0;
-}
-
-.header.active {
+.floating-menu {
   position: fixed;
-  top: 35px;
-  padding: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
 }
 
-.header.active .container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.header .nav-toggler {
+.floating-menu .nav-toggler {
   width: 50px;
   height: 50px;
   border: none;
   cursor: pointer;
   border-radius: 50%;
-  background-color: var(--white-alpha-25);
-  border: 1px solid var(--white-alpha-40);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 15px;
-  z-index: 1;
-  transition: opacity 0.5s ease-in-out;
+  z-index: 2;
 }
 
-.header .nav-toggler.hide {
-  opacity: 0;
-  transition: none;
-}
-
-.header .nav-toggler span {
+.floating-menu .nav-toggler span {
   height: 2px;
   width: 24px;
-  background-color: var(--main-color);
+  background-color: #333;
   position: relative;
   transition: background-color 0.3s ease;
 }
 
-.header.active .nav-toggler span {
-  background-color: transparent;
-}
-
-.header .nav-toggler span::before,
-.header .nav-toggler span::after {
+.floating-menu .nav-toggler span::before,
+.floating-menu .nav-toggler span::after {
   content: "";
   position: absolute;
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: var(--main-color);
+  background-color: #333;
   transition: all 0.3s ease;
 }
 
-.header .nav-toggler span::before {
+.floating-menu .nav-toggler span::before {
   left: 0;
   transform: translateY(-8px);
 }
 
-.header.active .nav-toggler span::before {
-  transform: rotate(45deg);
-}
-
-.header .nav-toggler span::after {
+.floating-menu .nav-toggler span::after {
   right: 0;
   transform: translateY(8px);
 }
 
-.header.active .nav-toggler span::after {
-  transform: rotate(-45deg);
-}
-
-.header:not(.active) .nav-toggler:hover span::before,
-.header:not(.active) .nav-toggler:hover span::after {
-  width: 50%;
-}
-
-.header .nav {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  padding: 35px 15px;
-  overflow-y: auto;
-  visibility: hidden;
-}
-
-.header.active .nav {
-  visibility: visible;
-}
-
-.header .nav-inner {
-  min-height: calc(100vh - 70px);
-  max-width: 1200px;
-  margin: auto;
-  background-color: var(--white-alpha-25);
-  border: 1px solid var(--white-alpha-40);
-  backdrop-filter: var(--backdrop-filter-blur);
-  padding: 50px 0;
-  border-radius: 30px;
+.floating-menu .nav-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: all 0.5s ease;
 }
 
-.header.active .nav-inner {
-  opacity: 1;
+.floating-menu .nav-inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.header .nav-inner ul li {
-  text-align: center;
+.floating-menu .nav-inner li {
+  margin: 0 10px;
 }
 
-.header .nav-inner ul li a {
-  font-size: 40px;
-  text-transform: capitalize;
-  color: var(--eerie-black);
+.floating-menu .nav-inner li a {
   display: block;
-  font-weight: 500;
-  padding: 8px 15px;
-  transition: color 0.3s ease;
-  position: relative;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
 }
 
-.header .nav-inner ul li a::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 50%;
-  width: 0%;
-  background-color: var(--white-alpha-25);
-  z-index: -1;
-  transition: width 0.5s ease;
-}
-
-.header .nav-inner ul li a:hover::before {
-  width: 100%;
-}
-
-.header .nav-inner ul li a:hover {
-  color: var(--main-color);
 }
 
 /* Home Section */
