@@ -8,19 +8,14 @@ window.addEventListener("load", (e) => {
   }, 600);
 });
 
-// Toggle Navbar
-const navToggler = document.querySelector(".nav-toggler");
-navToggler.addEventListener("click", () => {
-  hideSection();
-  toggleNavbar();
-  document.body.classList.toggle("hide-scrolling");
+const navToggler = document.querySelector('.nav-toggler');
+const navItems = document.querySelectorAll('.nav-item');
+
+navToggler.addEventListener('click', function() {
+  navItems.forEach(item => {
+    item.classList.toggle('show');
+  });
 });
-function hideSection() {
-  document.querySelector("section.active").classList.toggle("fade-out");
-}
-function toggleNavbar() {
-  document.querySelector(".header").classList.toggle("active");
-}
 
 // Active Section
 document.addEventListener("click", (e) => {
